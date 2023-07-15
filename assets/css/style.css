@@ -1,0 +1,60 @@
+body {
+  background-color: #bfc99e80;
+  font-size: 18px;
+}
+
+.section__wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__text {
+  color: #1e1e2f;
+  margin-bottom: 50px;
+}
+
+.section__text--color {
+  color: #8658e2;
+}
+
+.section__list {
+  margin: 0 0 50px;
+  padding: 0;
+}
+
+.section__list--active {
+  color: #e23443;
+}
+
+.section__item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.section__item::marker {
+  color: #329e37;
+}
+
+.section__button {
+  padding: 10px 20px;
+  background-color: #8d5013;
+  border: 1px solid #f39b44;
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.section__button:first-of-type {
+  margin-bottom: 30px;
+}
+
+/* Сделать так, чтобы при наведении на элемент его цвет менялся на другой (не обязательно делать при помощи js) */
+.section__button--hover:hover {
+  background-color: #20b897;
+  border: 1px solid #107962;
+}
