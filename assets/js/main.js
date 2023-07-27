@@ -1,62 +1,44 @@
-window.addEventListener('DOMContentLoaded', () =>
-{
+// 1 задание
+// Создать переменные num1, num2 которые пользователь вводит с клавиатуры
+// Проверьте, что переменная num1 равна или меньше 1, а переменная num2 больше или равна 3.
 
-  const list = document.querySelector('.section__list');
-  const text = document.querySelector('.section__text');
-  const buttonForText = document.querySelector('.section__button--js');
-  const buttonForList = document.querySelector('.section__button--hover');
+let num1 = +prompt("Введите первое число");
+let num2 = +prompt("Введите второе число");
+// не совсем поняла, что делать, если "да"
+if(num1 <= 1) {
+  alert(`${num1} меньше или равно 1`)
+} else if(num2 >= 3) {
+  aklert(`${num2} больше или равно 3`)
+}
 
-  // Сделать так, чтобы при нажатии на кнопку менялся цвет и текст элемента <p>
+// 2 задание
+// Перепишите код к тернарному оператору
 
-  let changeTextColor = () =>
-  {
-    text.classList.toggle('section__text--color')
-  }
+// let test = true;
+// if (test === true) {
+// console.log('+++');
+// } else {
+// console.log('---');
+// }
 
-  buttonForText.addEventListener('click', changeTextColor);
+let test = true;
+console.log((test === true ? '+++' : '---'));
 
-  // Сделать так, чтобы при нажатии на кнопку все элементы списка (тэги ul, li) меняли цвет на активный
+// 3 задание
+// В переменной day лежит какое-то число из интервала от 1 до 31. Определите в какую декаду месяца попадает это число (в первую, вторую или третью).
 
-  let changeListColor = () =>
-  {
-    if(!list.classList.contains('section__list--active'))
-    {
-      list.classList.add('section__list--active')
-    } else
-    {
-      list.classList.remove('section__list--active')
+let day = +prompt("Введите число месяца от 1 до 31");
+
+if(day < 1 && day > 31) {
+  alert("Вы ввели невенрое число")
+} else {
+  if (day >= 1 && day <= 31) {
+    if(day >= 1 && day <= 10) {
+      alert(`${day} отосится к первой декаде`)
+    } else if(day >= 11 && day <= 20) {
+      alert(`${day} отосится ко второй декаде`)
+    } else {
+      alert(`${day} отосится к третьей декаде`)
     }
   }
-
-  buttonForList.addEventListener('click', changeListColor);
-
-  // Создать страницу, которая спрашивает имя у пользователя и выводит его с помощью функции.
-  let userName = prompt('Как Вас зовут?', '');
-  alert(`Приятно познакомиться, ${userName}!`);
-
-  // Перепишите код, используя конструкцию switch-case, запрашивая возраст пользователя через диалоговое окно.
-  // let age = 101;
-
-  // if(age == 18) {
-  //   alert('Вы совершеннолетний, вс можно!');
-  // } else if(age == 10) {
-  //   alert('Вам надо чить уроки!');
-  // } else if(age == 30) {
-  //   alert('Мы не знаем, что Вам делать');
-  // }
-
-  let userAge = +prompt('Сколько Вам лет?');
-
-  switch(userAge)
-  {
-    case 30:
-      alert('Вы уже достигли зрелости');
-      break;
-    case 15:
-      alert('Вы еще очень молоды')
-      break;
-    case 45:
-      alert('Мудрости уже не занимать');
-      break;
-  }
-})
+}
