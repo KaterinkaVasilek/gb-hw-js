@@ -1,62 +1,46 @@
-window.addEventListener('DOMContentLoaded', () =>
-{
+// 1 задание
+// Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
+// 0 – это ноль
+// 1 – нечетное число
+// 2 – четное число
+// 3 – нечетное число
+// …
+// 10 – четное число
 
-  const list = document.querySelector('.section__list');
-  const text = document.querySelector('.section__text');
-  const buttonForText = document.querySelector('.section__button--js');
-  const buttonForList = document.querySelector('.section__button--hover');
-
-  // Сделать так, чтобы при нажатии на кнопку менялся цвет и текст элемента <p>
-
-  let changeTextColor = () =>
-  {
-    text.classList.toggle('section__text--color')
+for(let i = 0; i < 11; i++) {
+  if(i = 0) {
+    console.log(`${i} - это ноль`);
+  } else if(i % 2 = 0) {
+    console.log(`${i} - это четное число`)
+  } else {
+    console.log(`${i} - это нечетное число`)
   }
+}
 
-  buttonForText.addEventListener('click', changeTextColor);
+// 2 задание
+// Дан массив [1, 2, 3, 4, 5, 6, 7]
+// Сделайте из этого массива следующий [1, 2, 3, 6, 7]
 
-  // Сделать так, чтобы при нажатии на кнопку все элементы списка (тэги ul, li) меняли цвет на активный
+let arr = [1, 2, 3, 4, 5, 6, 7];
+let part1 = arr.slice(0, 3);
+let part2 = arr.slice(5, 7);
 
-  let changeListColor = () =>
-  {
-    if(!list.classList.contains('section__list--active'))
-    {
-      list.classList.add('section__list--active')
-    } else
-    {
-      list.classList.remove('section__list--active')
-    }
+let slicedArr = [...part1, ...part2];
+
+console.log(slicedArr)
+
+// 3 задание
+// Используя Math.random() вам необходимо генерировать цифры от 0 до 9, и создать массив состоящий из 5 таких элементов
+// 1. Рассчитать сумму элементов этого массива
+// 2. Найти минимальное число
+// 3. Найти есть ли в этом массиве число 3
+
+function getRndInteger() {
+  let array = [];
+  for(let i = 0; i < 5; i++) {
+    let number = Math.floor(Math.random()*10);
+    array.push(number);
   }
-
-  buttonForList.addEventListener('click', changeListColor);
-
-  // Создать страницу, которая спрашивает имя у пользователя и выводит его с помощью функции.
-  let userName = prompt('Как Вас зовут?', '');
-  alert(`Приятно познакомиться, ${userName}!`);
-
-  // Перепишите код, используя конструкцию switch-case, запрашивая возраст пользователя через диалоговое окно.
-  // let age = 101;
-
-  // if(age == 18) {
-  //   alert('Вы совершеннолетний, вс можно!');
-  // } else if(age == 10) {
-  //   alert('Вам надо чить уроки!');
-  // } else if(age == 30) {
-  //   alert('Мы не знаем, что Вам делать');
-  // }
-
-  let userAge = +prompt('Сколько Вам лет?');
-
-  switch(userAge)
-  {
-    case 30:
-      alert('Вы уже достигли зрелости');
-      break;
-    case 15:
-      alert('Вы еще очень молоды')
-      break;
-    case 45:
-      alert('Мудрости уже не занимать');
-      break;
-  }
-})
+  return array;
+}
+console.log(getRndInteger())
