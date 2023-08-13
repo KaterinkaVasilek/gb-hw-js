@@ -1,40 +1,153 @@
 // 1 задание
-// Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
-// 0 – это ноль
-// 1 – нечетное число
-// 2 – четное число
-// 3 – нечетное число
-// …
-// 10 – четное число
+// Дан объект numbers. Необходимо в консоль вывести все значения больше или равные 3.
 
-for(let i = 0; i < 11; i++) {
-  console.log(i);
+const numbers = {
+  keyin1: 1,
+  keyin2: 2,
+  keyin3: 3,
+  keyin4: 4,
+  keyin5: 5,
+  keyin6: 6,
+  keyin7: 7,
+}
+
+for (const key in numbers) {
+  if(numbers[key] >= 3) {
+    // console.log(key + ": " + numbers[key]);
+  }
 }
 
 // 2 задание
-// Дан массив [1, 2, 3, 4, 5, 6, 7]
-// Сделайте из этого массива следующий [1, 2, 3, 6, 7]
+// Необходимо из объекта, который лежит в константе post вывести значения, к которым приписан комментарий, в консоль.
 
-let arr = [1, 2, 3, 4, 5, 6, 7];
-let part1 = arr.slice(0, 3);
-let part2 = arr.slice(5, 7);
+const post = {
+  author: "John", // вывести этот текст
+  postId: 23,
+  comments: [
+    {
+    userId: 10,
+    userName: "Alex",
+    text: "lorem ipsum",
+    rating: {
+      likes: 10,
+      dislikes: 2, // вывести это число
+      },
+    },
+    {
+      userId: 5, // вывести это число
+      userName: "Jane",
+      text: "lorem ipsum 2", // вывести этот текст
+      rating: {
+      likes: 3,
+      dislikes: 1,
+      },
+    },
+  ],
+  showParams: function() {
+    const { rating } = this.comments[0];
+    const { userId, text } = this.comments[1];
+    console.log(rating.dislikes);
+    console.log(userId, text);
+  }
+};
 
-let slicedArr = [...part1, ...part2];
-
-console.log(slicedArr)
+// post.showParams();
 
 // 3 задание
-// Используя Math.random() вам необходимо генерировать цифры от 0 до 9, и создать массив состоящий из 5 таких элементов
-// 1. Рассчитать сумму элементов этого массива
-// 2. Найти минимальное число
-// 3. Найти есть ли в этом массиве число 3
+// Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя метод forEach.
 
-function getRndInteger() {
-  let array = [];
-  for(let i = 0; i < 5; i++) {
-    let number = Math.floor(Math.random()*10);
-    array.push(number);
-  }
-  return array;
+const products = [
+  {
+    id: 3,
+    price: 200,
+  },
+  {
+    id: 4,
+    price: 900,
+  },
+  {
+    id: 1,
+    price: 1000,
+  },
+];
+
+const countPercent = (products) => {
+  products.forEach(obj => {
+    let result = obj.price * 15 / 100;
+    console.log(result);
+  })
 }
-console.log(getRndInteger())
+
+// countPercent(products);
+
+// 4 задание
+// 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter. Исходные данные - массив products.
+// 2. Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+
+const products1 = [
+  {
+    id: 3,
+    price: 127,
+    photos: [
+      "1.jpg",
+      "2.jpg",
+    ],
+  },
+  {
+    id: 5,
+    price: 499,
+    photos: [],
+  },
+  {
+    id: 10,
+    price: 26,
+    photos: [
+    "3.jpg",
+    ],
+  },
+  {
+    id: 8,
+    price: 78,
+  },
+];
+
+// 1
+const filterArr = (products) => {
+  let productsWithPhoto = products.filter(product => {
+    "photos" in product && product.photos.length !== 0
+  });
+  console.log(productsWithPhoto)
+}
+
+// 2
+const sortByPrice = (products) => {
+  let sortedArr = products.sort((a, b) => {
+    a.price - b.price
+  });
+  console.log(sortedArr);
+}
+
+filterArr(products1);
+sortByPrice(products1);
+
+// 5 задание
+// Дано 2 массива 
+const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+
+// Вам необходимо объединить 2 этих массива, чтобы значения первого массива были ключами, а значения второго массива — значениями.
+
+const createObj = (en, ru) => {
+  let obj = {};
+  for(let i = 0; i < en.length; i++) {
+    for(let j = 0; j < ru.length; j++) {
+      obj[en[i]] = ru[j];
+      i++;
+    }
+  }
+
+  console.log(obj)
+  // не понимаю, как сделать сортировку ключей в правильном порядке((( напишите, пожалуйста.
+}
+
+// createObj(en, ru);
