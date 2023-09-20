@@ -1,3 +1,8 @@
+h3,
+p {
+  margin: 0;
+}
+
 .error {
   border: 1px solid red;
 }
@@ -15,18 +20,32 @@
   list-style-type: none;
 }
 
-.cards__item {
-  padding: 10px;
-  border: 1px solid #888;
-  border-radius: 10px;
-}
-
 .card__img {
   width: 100%;
 }
 
+.card__text-container {
+  padding: 23px 29px 20px 18px;
+  background-color: #f8f8f8;
+}
+
 .card__title {
+  margin-bottom: 13px;
+  color: #000;
   font-size: 18px;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+.card__text {
+  margin-bottom: 18px;
+  color: #5d5d5d;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.card__price {
+  color: #f16d7f;
+  font-size: 16px;
+  font-weight: 400;
 }
